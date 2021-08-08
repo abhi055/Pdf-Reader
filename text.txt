@@ -1,0 +1,906 @@
+Learning PythonFOURTH EDITIONLearning PythonLearning Python, Fourth Edition
+
+
+
+Editor:Production Editor:Copyeditor:Production Services:Indexer:Cover Designer:Interior Designer:Illustrator:Printing History:
+
+
+
+
+
+
+
+
+
+Table of ContentsPreface ................................................................... xxxi
+Part I. Getting Started 1.A Python Q&A Session ..
+................................................. 3
+vii2.How Python Runs Programs 
+...
+.......................................... 23
+
+3.How You Run Programs ..
+............................................... 35
+
+viii|Table of Contents
+Part II. Types and Operations 
+4.Introducing Python Object Types ...
+...................................... 75
+Table of Contents|ix
+5.Numeric Types 
+...
+.................................................... 105
+6.The Dynamic Typing Interlude ...
+....................................... 143
+x|Table of Contents
+7.Strings .............................................................. 155
+8.Lists and Dictionaries 
+...
+............................................... 197
+Table of Contents|xi
+9.Tuples, Files, and Everything Else 
+...
+..................................... 225
+Part III. Statements and Syntax 
+10.Introducing Python Statements ..
+....................................... 261
+xii|Table of Contents
+11.Assignments, Expressions, and Prints 
+...
+................................. 279
+12.if Tests and Syntax Rules ..
+............................................. 311
+Table of Contents|xiii
+13.while and for Loops 
+...
+................................................ 327
+14.Iterations and Comprehensions, Part 1 ...
+................................ 351
+xiv|Table of Contents
+15.The Documentation Interlude 
+...
+........................................ 375
+Part IV. Functions 
+16.Function Basics ...
+.................................................... 395
+Table of Contents|xv
+17.Scopes .............................................................. 407
+18.Arguments 
+.......................................................... 435
+xvi|Table of Contents19.Advanced Function Topics ...
+........................................... 463
+20.Iterations and Comprehensions, Part 2 ..
+................................. 485
+Table of Contents|xvii
+Part V. Modules 
+21.Modules: The Big Picture ...
+............................................ 529
+22.Module Coding Basics ..
+................................................ 543
+xviii|Table of Contents
+23.Module Packages 
+...
+.................................................. 561
+24.Advanced Module Topics ..
+............................................. 583
+Table of Contents|xix
+Part VI. Classes and OOP 
+25.OOP: The Big Picture ...
+................................................ 611
+26.Class Coding Basics ..
+.................................................. 625
+xx|Table of Contents
+27.A More Realistic Example 
+...
+............................................ 643
+28.Class Coding Details ..
+................................................. 681
+Table of Contents|xxi
+
+29.Operator Overloading ..
+............................................... 705
+xxii|Table of Contents
+30.Designing with Classes 
+...
+.............................................. 737
+31.Advanced Class Topics ...
+.............................................. 773
+Table of Contents|xxiii
+
+Part VII. Exceptions and Tools 32.Exception Basics ...
+................................................... 825
+33.Exception Coding Details ...
+............................................ 835
+xxiv|Table of Contents
+34.Exception Objects 
+..
+................................................... 857
+35.Designing with Exceptions ..
+........................................... 873
+Table of Contents|xxv
+Part VIII. Advanced Topics 
+36.Unicode and Byte Strings ..
+............................................. 895
+xxvi|Table of Contents
+37.Managed Attributes 
+..
+................................................. 941
+Table of Contents|xxvii
+38.Decorators 
+........................................................... 983
+xxviii|
+Table of Contents39.Metaclasses 
+......................................................... 1051
+Part IX. Appendixes 
+A.Installation and Configuration ..
+....................................... 1089
+B.Solutions to End-of-Part Exercises ..
+.................................... 1101
+Index .................................................................... 1139
+Table of Contents|xxix
+Preface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xxxiAbout This Fourth Edition
+
+
+
+
+
+
+
+
+
+
+
+
+
+print
+
+
+
+
+
+
+
+
+
+
+
+
+
+Coverage for Both 3.0 and 2.6
+
+
+
+
+
+
+
+
+
+
+print
+print
+
+nonlocal
+format
+
+
+
+
+xxxii|Preface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+format
+with
+
+
+
+
+
+
+
+
+
+New Chapters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Preface|xxxiii
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Changes to Existing Material
+
+
+
+
+
+
+mapzip
+
+
+
+
+__contains____bool__
+__index__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+format
+
+
+exec
+
+
+
+
+
+xxxiv|Preface
+
+
+
+Specific Language Extensions in 2.6 and 3.0
+
+
+
+
+
+
+list
+
+
+
+
+ExtensionCovered in chapter(s)The print function in 3.011The nonlocal x,y statement in 3.017The str.format method in 2.6 and 3.07String types in 3.0: str for Unicode text, bytes for binary data7, 36Text and binary file distinctions in 3.09, 36Class decorators in 2.6 and 3.0: 31, 38New iterators in 3.0: range, map, zip14, 20Dictionary views in 3.0: D.keys, D.values, D.items8, 14Division operators in 3.0: remainders, / and //5Set literals in 3.0: {a, b, c}5Set comprehensions in 3.0: {x**2 for x in seq}4, 5, 14, 20Dictionary comprehensions in 3.0: {x: x**2 for x in seq}4, 8, 14, 20Binary digit-string support in 2.6 and 3.0: 0b0101, bin(I)5The fraction number type in 2.6 and 3.0: Fraction(1, 3)5Function annotations in 3.0: def f(a:99, b:str)->int19Keyword-only arguments in 3.0: def f(a, *b, c, **d)18, 20Extended sequence unpacking in 3.0: a, *b = seq11, 13Relative import syntax for packages enabled in 3.0: from .23Context managers enabled in 2.6 and 3.0: with/as33, 35Exception syntax changes in 3.0: raise, except/as, superclass33, 34Preface|xxxv
+ExtensionCovered in chapter(s)Exception chaining in 3.0: raise e2 from e133Reserved word changes in 2.6 and 3.011New-style class cutover in 3.031Property decorators in 2.6 and 3.0: @property37Descriptor use in 2.6 and 3.031, 38Metaclass use in 2.6 and 3.031, 39Abstract base classes support in 2.6 and 3.028Specific Language Removals in 3.0
+
+
+
+
+
+
+RemovedReplacementCovered in chapter(s)reload(M)imp.reload(M) (or exec)3, 22apply(f, ps, ks)f(*ps, **ks)18repr(X)5X <> YX != Y5longint59999L99995D.has_key(K)K in D (or D.get(key) != None)8raw_inputinput3, 10old inputeval(input())3xrangerange14fileopen (and io module classes)9X.nextX.__next__, called by next(X)14, 20, 29X.__getslice__X.__getitem__ passed a slice object7, 29X.__setslice__X.__setitem__ passed a slice object7, 29reducefunctools.reduce (or loop code)14, 19execfile(filename)exec(open(filename).read())
+3exec open(filename)exec(open(filename).read())
+307770o7775print x, yprint(x, y)11xxxvi|Preface
+RemovedReplacementCovered in chapter(s)print >> F, x, yprint(x, y, file=F)11print x, y,117, 36 for byte strings7, 9, 36raise E, Vraise E(V)32, 33, 34except E, X:except E as X:32, 33, 34def f((a, b)):def f(x): (a, b) = x11, 18, 20file.xreadlinesfor line in file: (or X=iter(file))13, 14D.keys(), etc. as listslist(D.keys()) (dictionary views)8, 14map(), range(), etc. as listslist(map()), list(range()) (built-ins)14map(None, ...)zip (or manual code to pad results)13, 20X=D.keys(); X.sort()sorted(D)
+ (or list(D.keys()))4, 8, 14cmp(x, y)(x > y) - (x < y)29X.__cmp__(y)__lt__, __gt__, __eq__, etc.29X.__nonzero__X.__bool__29X.__hex__, X.__oct__X._index__
+29Sort comparison functionsUse 
+key=transform or reverse=True8Dictionary <, >, <=, >=Compare sorted(D.items()) (or loop code)8, 9types.ListTypelist (types is for nonbuilt-in names only)9__metaclass__ = Mclass C(metaclass=M):28, 31, 39__builtin__builtins (renamed)17Tkintertkinter (renamed)18, 19, 24, 29, 30sys.exc_type, exc_valuesys.exc_info()[0]
+, [1]34, 35function.func_codefunction.__code__
+19, 38__getattr__ run by built-insRedefine 
+__X__ methods in wrapper classes30, 37, 38-t,  command-line switchesInconsistent tabs/spaces use is always an error
+10, 12from ... *, within a functionMay only appear at the top level of a file
+22import mod, in same packagefrom . import mod, package-relative form23class MyException:class MyException(Exception):
+34exceptions moduleBuilt-in scope, library manual34thread, Queue modules_thread, queue (both renamed)17anydbm moduledbm (renamed)27cPickle module_pickle (renamed, used automatically)9os.popen2/3/4subprocess.Popen (os.popen retained)14String-based exceptionsClass-based exceptions (also required in 2.6)
+32, 33, 34Preface|xxxvii
+RemovedReplacementCovered in chapter(s)String module functionsString object methods
+7Unbound methodsFunctions (staticmethod to call via instance)30, 31Mixed type comparisons, sortsNonnumeric mixed type comparisons are errors5, 9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+About The Third Edition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xxxviii|Preface
+
+B if A else Cwithastryexceptfinally
+
+
+
+
+
+
+
+
+sortedsumanyallenumerate
+
+
+
+
+distutilsunittest
+doctest
+
+True
+False
+sys.exc_info
+
+apply
+reduce
+
+
+
+
+apply
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for
+Preface|xxxix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xl|Preface
+
+
+
+
+
+
+
+
+
+
+
+About This Book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Preface|xli
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xlii|Preface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Preface|xliii
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+__name__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xliv|Preface
+
+
+
+
+
+
+
+
+Book Updates
+^H^H^H
+
+
+
+
+
+
+
+
+About the Programs in This Book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Using Code Examples
+
+
+
+Preface|xlv
+
+
+
+
+
+
+
+
+
+
+
+
+Font Conventions
+Constant width
+
+Constant width bold
+
+Constant width italic<Constant width>xlvi|Preface
+
+
+
+%
+
+
+C:\Python30>
+
+%
+
+>>>...
+
+
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How to Contact Us
+
+
+
+
+
+Preface|xlvii
+
+
+Acknowledgments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+xlviii|Preface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Preface|xlix
